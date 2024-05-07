@@ -1,7 +1,7 @@
 // Copyright 2021 NNTU-CS
 #include "train.h"
 
-Train::Train(): countOp(0), first(nullptr){}
+Train::Train(): countOp(0), first(nullptr) {}
 
 int Train::getOpCount() {
     return countOp;
@@ -13,15 +13,13 @@ void Train::addCage(bool light) {
         first->light = light;
         first->next = nullptr;
         first->prev = nullptr;
-    }
-    else if (first && !first->next) {
+    } else if (first && !first->next) {
         first->next = new Cage;
         first->next->light = light;
         first->next->next = first;
         first->prev = first->next;
         first->next->prev = first;
-    }
-    else {
+    } else {
         Cage* temp = first;
         do {
             temp = temp->next;
